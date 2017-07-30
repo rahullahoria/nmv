@@ -9,14 +9,63 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
 
-                <input class="form-control" placeholder="Mobile" type="text" name="username" ng-min="10" ng-max="10" ng-model="vm.adv.title" required >
+                <input class="form-control"  placeholder="Mobile" type="text" name="username" ng-min="10" ng-max="10" ng-model="vm.tsUser.mobile">
 
+            </div>
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-primary " ng-click="vm.searchUser()">
+                    Search
+                </button>
             </div>
 
         </div>
         <hr>
+
+        <div class="row" ng-show="vm.tUser.name">
+            <div class="col-lg-8">
+                <div class="col-lg-4">
+                    Name: {{vm.tUser.name}}
+
+                </div>
+                    <div class="col-lg-4">
+                        Email: {{vm.tUser.mobile}}
+                    </div>
+                <div class="col-lg-4">
+                    Email: {{vm.tUser.email}}
+                </div>
+                <div class="col-lg-4">
+                    Gender: {{vm.tUser.gender}}
+                </div>
+                <div class="col-lg-4">
+                    Education: {{vm.tUser.education}}
+                </div>
+                <div class="col-lg-4">
+                    Dob: {{vm.tUser.dob}}
+                </div>
+
+                <div class="col-lg-4">
+                    Occupation: {{vm.tUser.occupation}}
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+
+            </div>
+            <div class="col-lg-4">
+
+            <button type="button" class="btn btn-primary " ng-click="vm.searchUser()">
+                Inquiry
+            </button>
+            <button type="button" class="btn btn-primary " ng-click="vm.searchUser()">
+                Order
+            </button>
+                </div>
+
+        </div>
+        <hr>
+
 
         <div class="row">
             <div class="col-lg-12" >

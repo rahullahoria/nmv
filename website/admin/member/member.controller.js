@@ -46,11 +46,22 @@
 
             //loadMonths();
             loadUser();
-            loadToCallCandidates();
+
 
         }
 
 
+        vm.searchUser = function (){
+            console.log(vm.tsUser.mobile,"mobile");
+            if(vm.tsUser.mobile)
+            CandidateService.SearchUser(vm.tsUser.mobile).then(function(response){
+                vm.tUser = response.response[0];
+                vm.tsUser.mobile = '';
+                console.log(vm.tUser,response);
+
+
+            });
+        }
 
         vm.uploadVideo = function(){
             vm.videoUploading = true;
@@ -188,7 +199,6 @@
 
 
 
-        vm.loadToCallCandidates = loadToCallCandidates;
 
         vm.date1 = new Date().getDate();
         vm.getFun = function(work){
@@ -218,28 +228,7 @@
 
 
 
-        function loadToCallCandidates(){
-            vm.dataLoading = true;
 
-            CandidateService.GetStatus()
-                .then(function (response) {
-                    vm.allAds = response.ads;
-                    vm.dataLoading = false;
-
-
-
-
-                    console.log('inside controller',vm.users);
-                });
-
-        }
-
-        /*function loadCurrentUser() {
-            UserService.GetByUsername($rootScope.globals.currentUser.username)
-                .then(function (user) {
-                    vm.user = user;
-                });
-        }*/
 
         function loadAllUsers() {
             UserService.GetAll()

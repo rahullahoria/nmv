@@ -19,7 +19,7 @@
         service.Delete = Delete;
         service.GetUserInstance = GetUserInstance;
         service.UpdateInstance = UpdateInstance;
-        service.GetStatus = GetStatus;
+        service.SearchUser = SearchUser;
         service.StartTest = StartTest;
         service.GetQuestion = GetQuestion;
         service.SubmitRespnse = SubmitRespnse;
@@ -40,9 +40,9 @@
 
         ///channel/sms/:mobile/text/:text
 
-        function GetStatus() {
+        function SearchUser(mobile) {
             return $http
-                .get('http://api.spas.shatkonlabs.com/ads')
+                .get('http://api.nmv.shatkonlabs.com/users/'+mobile+'/search')
                 .then(handleSuccess, handleError('Error getting all users'));
         }
 
