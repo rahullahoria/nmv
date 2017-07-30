@@ -1,0 +1,287 @@
+﻿
+<div ng-include src="'navbar/navbar.view.html'"></div>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Inquiry</h1>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+
+                <input class="form-control" placeholder="Mobile" type="text" name="username" ng-min="10" ng-max="10" ng-model="vm.adv.title" required >
+
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-12" >
+
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <i class="fa fa-list fa-fw"></i> Current Ads
+                        <span class="pull-right">
+                            <button type="button" class="btn btn-primary " ng-click="vm.newAddModel()">
+                                <i class="fa fa-user fa-fw"></i> New Ads +
+                            </button>
+                        </span>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body" >
+                        <div class="table-responsive">
+
+                        <table datatable="ng"  class="table table-bordered table-hover table-striped" style="max-width: 99%;">
+                            <thead>
+                            <tr>
+                                <th>ID <i class="fa fa-anchor fa-fw"></i></th>
+                                <th>Name <i class="fa fa-bicycle fa-fw"></i></th>
+                                <th>Demographics<i class="fa fa-question-circle fa-fw"></i></th>
+                                <th>Area<i class="fa fa-coffee  fa-fw"></i></th>
+                                <th>City <i class="fa fa-coffee  fa-fw"></i></th>
+                                <th>KM<i class="fa fa-coffee  fa-fw"></i></th>
+                                <th>Creation <i class="fa fa-coffee  fa-fw"></i></th>
+                                <th>Status<i class="fa fa-coffee  fa-fw"></i></th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+
+                            <tr ng-repeat="ad in vm.allAds"  class="{{ (topic.amount_made==null)?'warning':'success' }}">
+
+                                <td>
+                                    <a ng-click="vm.videoDetails($index)">{{ ad.id }}</a>
+                                </td>
+                                <td>
+                                    {{ ad.title}}
+                                </td>
+                                <td>
+                                    {{ ad.gender}} ({{ ad.age_lower}} - {{ ad.age_higher}})
+                                </td>
+
+                                <td>
+                                    {{ ad.area}}
+                                </td>
+                                <td>
+                                    {{ ad.city}}
+                                </td>
+                                <td>
+                                    {{ ad.km}}
+                                </td>
+
+                                <td>
+                                    {{ ad.creation}}
+                                </td>
+                                <td>
+                                  {{ ad.status}}
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                            </div>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
+            <hr>
+            </div>
+            <!-- /.col-lg-8 -->
+
+        </div>
+        <!-- /.row -->
+
+
+    </div>
+    <!-- /#page-wrapper -->
+
+
+<!-- /#wrapper -->
+
+<div id="adsModel" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                Please insert advertisement details
+            </div>
+            <div class="modal-body">
+
+
+                <form role="form" ng-submit="vm.createAdv()" role="form">
+                    <fieldset>
+
+                        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                            <input class="form-control" placeholder="Title" type="text" name="username" id="username" ng-model="vm.adv.title" required >
+
+                        </div>
+
+                        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+
+                            <select name="exam_id"  id="exam_id" class="form-control" ng-model="vm.adv.gender" required>
+                                <option value="" selected>Select Gender</option>
+                                <option value="male" >Male</option>
+                                <option value="female" >Female</option>
+                                <option value="other" >Other</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                    <input class="form-control" placeholder="Target Lower Age" type="number" name="username" id="username" ng-model="vm.adv.age_lower" required >
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                    <input class="form-control" placeholder="Target Higher Age" type="number" name="username" id="username" ng-model="vm.adv.age_higher" required >
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                    <input class="form-control" placeholder="Area to Target" type="text" name="username" id="username" ng-model="vm.adv.area" required >
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                    <input class="form-control" placeholder="City to Target" type="text" name="username" id="username" ng-model="vm.adv.city" required >
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                    <input class="form-control" placeholder="In How many Kilometers" type="number" name="username" id="username" ng-model="vm.adv.km" required >
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+
+                                <select name="profession" ng-model="vm.adv.days">
+
+                                    <option value="0" selected>Days</option>
+                                    <option value="10" >10</option>
+                                    <option value="50" >50</option>
+                                    <option value="100" >100</option>
+                                    <option value="365" >365</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+
+                                <select name="profession" ng-model="vm.adv.stores">
+
+                                    <option value="0" selected>Stores</option>
+                                    <option value="10" >10</option>
+                                    <option value="50" >50</option>
+                                    <option value="100" >100</option>
+                                    <option value="200" >200</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="form-actions">
+                            <button type="submit" ng-disabled="form.$invalid || vm.processing || !vm.adv.video_id" class="btn btn-lg btn-primary btn-block">
+                                Create Adv.
+                                <img ng-if="vm.processing" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            </button>
+
+                        </div>
+
+
+                    </fieldset>
+                </form>
+
+                <div class="form-group">
+                    <label for="video_file">Upload Adv. Video</label>
+                    <input type="file" name="pic_id" id="video_file" class="form-control" ng-hide="vm.login" file-model="vm.adv.file"/>
+                    <button  class="btn btn-primary" ng-disabled="vm.videoUploading" ng-click="vm.uploadVideo();">Upload</button>
+                    <img ng-if="vm.processing" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
+
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger pull-left" ng-click="vm.writeAboutUser(vm.users[vm.loadUserId])" data-dismiss="modal">Write</button>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="userModel" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{ vm.allAds[vm.loadUserId].title }}</h4>
+
+            </div>
+            <div class="modal-body">
+                <video controls id="video" style="width: 100%;height:100%;" >
+                    <source type="video/mp4" />
+                </video>
+
+                <div style="height: 250px; overflow-y: scroll;">
+                <div ng-repeat="comment in vm.comments" >
+                {{ comment.creation }}<br>
+                <b>{{ comment.feedback }}</b>
+                    <hr>
+
+                </div>
+                </div>
+
+                <textarea ng-model="vm.user.feedback" style="min-width: 100%">
+
+                </textarea>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger pull-left" ng-click="vm.writeAboutUser(vm.users[vm.loadUserId])" data-dismiss="modal">Write</button>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

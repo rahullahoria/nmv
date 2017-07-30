@@ -1,0 +1,52 @@
+﻿<div class="col-md-4 col-md-offset-4" ng-hide="vm.regSuccess">
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">Free Wifi Access</h3>
+        </div>
+        <div class="panel-body">
+            <form role="form" ng-submit="vm.reg()" role="form">
+                <fieldset>
+
+
+
+                    <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                        <input class="form-control" placeholder="Mobile" type="text" name="mobile" id="mobile" ng-model="vm.user.mobile" required autofocus>
+                        <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile No. Name is required</span>
+                    </div>
+
+
+                    <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+
+                        <select name="exam_id"  id="exam_id" class="form-control" ng-model="vm.user.gender" required>
+                            <option value="" selected>Select Gender</option>
+                            <option value="male" >Male</option>
+                            <option value="female" >Female</option>
+                            <option value="other" >Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                        <input class="form-control" placeholder="Dob yyyy-mm-dd" type="date" name="mobile" id="mobile" ng-model="vm.user.dob" required autofocus>
+                        <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile No. Name is required</span>
+                    </div>
+
+                    <div class="btn-danger" style="text-align: center">
+                        {{ vm.regError }}
+                    </div>
+                    <br>
+                    <div class="form-actions">
+                        <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-lg btn-success btn-block">Register
+                            <img ng-if="vm.dataLoadingReg" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        </button>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-md-offset-4" ng-show="vm.regSuccess">
+    <h4>Thanks for register! Enjoy your Free Wifi :)</h4>
+</div>
