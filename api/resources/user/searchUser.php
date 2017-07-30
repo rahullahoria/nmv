@@ -10,7 +10,13 @@ function searchUser($mobile){
 
     $sql = "select * from users WHERE mobile = :mobile;";
 
-    $sqlAddress = "SELECT a.`address_1`,a.`address_2`,a.`area`,a.`city_id`,b.name,a.state_id, c.name, a.country_id,d.name,a.pin_code, a.post_office FROM `user_address` as a inner join cities as b inner join states as c inner join countries as d WHERE a.user_id = :userIdand a.city_id = b.id and a.state_id = c.id and a.country_id = d.id ";
+    $sqlAddress = "SELECT a.`address_1`,a.`address_2`,a.`area`,a.`city_id`,b.name,a.state_id, c.name, a.country_id,d.name,a.pin_code, a.post_office
+                      FROM
+                        `user_address` as a inner join
+                        cities as b inner join
+                        states as c inner join
+                        countries as d
+                    WHERE a.user_id = :userId and a.city_id = b.id and a.state_id = c.id and a.country_id = d.id ";
 
 
 
