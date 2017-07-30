@@ -20,6 +20,7 @@
         vm.good = 0;
         vm.improve = 0;
         vm.bad = 0;
+        vm.tuserComments = [];
 
         vm.successFilter = true;
         vm.dangerFilter = true;
@@ -53,7 +54,8 @@
 
         vm.searchUser = function (){
             console.log(vm.tsUser.mobile,"mobile");
-            if(vm.tsUser.mobile)
+            if(vm.tsUser.mobile){
+                vm.userRemarks(vm.tsUser.mobile);
             CandidateService.SearchUser(vm.tsUser.mobile).then(function(response){
                 vm.tUser = response.response[0];
                 vm.tsUser.mobile = '';
@@ -61,7 +63,36 @@
 
 
             });
+            }
         }
+
+
+        vm.writeAboutUser = function(){
+
+            CandidateService.AddRemark(vm.tUser.mobile,
+                {
+                    "feedback":vm.tUser.feedback + ' by '+ vm.inUser.username,
+                    "digieye_user_id":1
+                }
+                )
+                .then(function (response) {
+                    response.feedback.creation = "Just Now";
+                    vm.tuserComments.push(response.feedback);
+                    vm.tUser.feedback = '';
+                });
+
+        };
+
+        vm.userRemarks = function(mobile){
+
+            CandidateService.GetRemarks(mobile)
+                .then(function (response) {
+                    vm.tuserComments = response.feedbacks;
+                    vm.tuserComments.reverse();
+                    console.log('inside controller',vm.tuserComments);
+                });
+
+        };
 
         vm.uploadVideo = function(){
             vm.videoUploading = true;
@@ -105,19 +136,7 @@
 
 
 
-        vm.userDetails = function(index){
-            vm.loadUserId = index;
-            CandidateService.GetRemarks(vm.users[vm.loadUserId].mobile)
-                .then(function (response) {
-                    vm.comments = response.feedbacks;
 
-
-
-
-                    console.log('inside controller',vm.comments);
-                });
-            $("#userModel").modal("show");
-        };
 
         vm.newAddModel = function(){
             /*vm.loadUserId = index;
@@ -133,19 +152,7 @@
             $("#adsModel").modal("show");
         };
 
-        vm.writeAboutUser = function(user){
 
-            CandidateService.AddRemark(user.username,
-                {
-                    "feedback":vm.user.feedback,
-                    "digieye_user_id":1
-                }
-                )
-                .then(function (response) {
-                    vm.user.feedback = '';
-                });
-
-        };
 
         vm.createAdv = function(mobile,id){
 
@@ -160,41 +167,9 @@
 
         }
 
-        vm.inviteForTest = function(mobile){
-            var text = "Hi! You have not completed your demo test.\nEarn Your 150Rs Now.\n";
-            text += "https://examhans.com/members/#/?rt=demo";
 
-            CandidateService.SendSMS(mobile,text).then(function (response) {
-                alert("SMS sent: "+text);
-                vm.user.feedback = 'SMS sent as : ' + text;
-                vm.writeAboutUser({username:mobile});
-            });
 
-        }
 
-        vm.askToBuy = function(mobile,index){
-            var text = "Congratulation!\nFor Earning Rs."+vm.users[index].amount_made+" on Examhans.com\nKeep learning and earning\n Buy Our Premium Plans\nCheck @\n";
-            text += "https://examhans.com/#plans";
-
-            CandidateService.SendSMS(mobile,text).then(function (response) {
-                alert("SMS sent: "+text);
-                vm.user.feedback = 'SMS sent as : ' + text;
-                vm.writeAboutUser({username:mobile});
-            });
-
-        }
-
-        vm.askForRef = function(mobile){
-            var text = "Hi!\nShare Demo Link bellow with your friends\nGet Free Silver Membership Plan\n";
-            text += "https://examhans.com/members/#/?rt=demo&ref_user="+mobile;
-
-            CandidateService.SendSMS(mobile,text).then(function (response) {
-                alert("SMS sent: "+text);
-                vm.user.feedback = 'SMS sent as : ' + text;
-                vm.writeAboutUser({username:mobile});
-            });
-
-        }
 
 
 

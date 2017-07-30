@@ -18,6 +18,8 @@ require_once "resources/user/searchUser.php";
 require_once "resources/user/checkOtp.php";
 require_once "resources/ads/getAllAds.php";
 
+require_once "resources/products/getProducts.php";
+
 require_once "resources/bill_board/getBBAds.php";
 
 require_once "resources/bill_board/feedback/storeFeedback.php";

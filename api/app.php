@@ -27,7 +27,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 $app->post('/auth', 'userAuth');//user,org,temp_user{mobile,mac}
 $app->post('/users', 'regUser');
 $app->post('/ads', 'createAds');
-$app->get('/ads','getAllAds');
+$app->get('/products','getProducts');
 
 $app->get('/users/:mobile/search','searchUser');
 
