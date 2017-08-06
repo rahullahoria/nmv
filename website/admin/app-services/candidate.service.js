@@ -13,7 +13,7 @@
     function CandidateService($http) {
         var service = {};
 
-        service.GetExams = GetExams;
+        service.GetProducts = GetProducts;
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
@@ -102,8 +102,8 @@
 
 
 
-        function GetExams(str) {
-            return $http.get('https://api.examhans.com/exams' ).then(handleSuccess, handleError('Error getting user by username'));
+        function GetProducts() {
+            return $http.get('http://api.nmv.shatkonlabs.com/products' ).then(handleSuccess, handleError('Error getting user by username'));
         }
 
         function CheckOTP(userMd5,type,otp) {
@@ -111,7 +111,7 @@
         }
 
         function Create(user) {
-            return $http.post('https://api.spas.shatkonlabs.com/users', user).then(handleSuccess, handleError('Error creating user'));
+            return $http.post('http://api.nmv.shatkonlabs.com/users', user).then(handleSuccess, handleError('Error creating user'));
         }
 
         function Update(user) {

@@ -36,6 +36,12 @@
 
         vm.currentShow = 0;
 
+        vm.order = {};
+        vm.order.total = 0;
+        vm.order.products = [];
+
+
+
         //nd/d/p
         vm.loadType = ($location.search().t != undefined)?$location.search().t:'nd';
 
@@ -51,20 +57,57 @@
 
         }
 
+        vm.addToOrder = function(){
+            var p = vm.products[vm.product.id];
 
+            p.quantity = vm.product.quantity;
+            vm.order.total = 0;
+           var flag = true;
+                for(var j=0; j< vm.order.products.length; j++){
+                    if(p.id = vm.order.products[j].id){
+                        vm.order.products[j].quantity = p.quantity;
+                        flag = false;
+                    }
+                    vm.order.total += vm.order.products[j].price*1*vm.order.products[j].quantity;
+
+                }
+            if(flag)
+                vm.order.products.push(p);
+        }
+
+        vm.newUser = {};
         vm.searchUser = function (){
             console.log(vm.tsUser.mobile,"mobile");
             if(vm.tsUser.mobile){
                 vm.userRemarks(vm.tsUser.mobile);
             CandidateService.SearchUser(vm.tsUser.mobile).then(function(response){
                 vm.tUser = response.response[0];
+
+                if(vm.tUser.id == null) {
+
+                    vm.newUser.mobile = vm.tsUser.mobile;
+
+                    vm.tUser.createUser = true;
+                }
                 vm.tsUser.mobile = '';
                 console.log(vm.tUser,response);
 
 
             });
             }
-        }
+        };
+        vm.regNewUser = function(){
+            vm.dataLoadingReg = true;
+            CandidateService.Create(vm.newUser
+                )
+                .then(function (response) {
+                    console.log("resp",response);
+
+
+                });
+
+
+        };
 
 
         vm.writeAboutUser = function(){
@@ -93,6 +136,8 @@
                 });
 
         };
+
+
 
         vm.uploadVideo = function(){
             vm.videoUploading = true;
@@ -138,18 +183,13 @@
 
 
 
-        vm.newAddModel = function(){
-            /*vm.loadUserId = index;
-            CandidateService.GetRemarks(vm.users[vm.loadUserId].mobile)
-                .then(function (response) {
-                    vm.comments = response.feedbacks;
+        vm.orderModel = function(){
 
+            CandidateService.GetProducts().then(function(resp){
+                vm.products = resp.products;
+            });
 
-
-
-                    console.log('inside controller',vm.comments);
-                });*/
-            $("#adsModel").modal("show");
+            $("#order").modal("show");
         };
 
 

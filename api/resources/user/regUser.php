@@ -20,8 +20,11 @@ function regUser(){
     }
 
 
-    $sql = "INSERT INTO `users`(`full_name`, `mobile`, `dob`, `gender`, `otp`, `router_id`)
-              VALUES (:fullName, :mobile, :dob, :gender, :otp, :routerId );";
+    $sql = "INSERT INTO `users`(`name`, `mobile`, `email`, `password`, `gender`, `type`, `dob`, `education`, `occupation`)
+              VALUES (:name,:mobile,:email,'',:gender,'',:dob,:education,:occupation);";
+
+    $sqlAddress = "INSERT INTO `user_address`(`user_id`, `address_1`, `address_2`, `area`, `city_id`, `state_id`, `country_id`, `pin_code`, `post_office`)
+                        VALUES (:userId,:address_1,:address_2,:area,:city,:state,:country,:pin_code,:post_office)";
 
 
 
@@ -29,19 +32,39 @@ function regUser(){
         $db = getDB();
 
         $stmt = $db->prepare($sql);
-        $status = "active";
-        //$service_provider->status = "new";
 
-        $stmt->bindParam("fullName", $user->full_name);
+
+        $stmt->bindParam("name", $user->name);
         $stmt->bindParam("mobile", $user->mobile);
-        $stmt->bindParam("dob", $user->dob);
+        $stmt->bindParam("email", $user->email);
+
         $stmt->bindParam("gender", $user->gender);
-        $stmt->bindParam("otp", $user->otp);
-        $stmt->bindParam("routerId", $user->router_id);
+        $stmt->bindParam("dob", $user->dob);
+        $stmt->bindParam("education", $user->education);
+        $stmt->bindParam("occupation", $user->occupation);
 
         $stmt->execute();
 
         $user->id = $db->lastInsertId();
+
+        if($user->id){
+            $stmt = $db->prepare($sqlAddress);
+
+
+            $stmt->bindParam("userId", $user->id);
+            $stmt->bindParam("address_1", $user->address_1);
+            $stmt->bindParam("address_2", $user->address_2);
+
+            $stmt->bindParam("area", $user->area);
+            $stmt->bindParam("city", $user->city);
+            $stmt->bindParam("state", $user->state);
+            $stmt->bindParam("country", $user->country);
+            $stmt->bindParam("pin_code", $user->pin_code);
+            $stmt->bindParam("post_office", $user->post_office);
+
+            $stmt->execute();
+
+        }
 
 
         $db = null;

@@ -23,6 +23,133 @@
         </div>
         <hr>
 
+        <div class="row" ng-show="vm.tUser.createUser">
+            Mobile: {{vm.newUser.mobile}}
+            <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Register </h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" ng-submit="vm.regNewUser()" role="form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                                <input class="form-control" placeholder="Full Name" type="text" name="username" id="reg_username" ng-model="vm.newUser.name" required autofocus>
+                                <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">full Name is required</span>
+                            </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{ 'has-error': form.exam_id.$dirty && form.exam_id.$error.required }">
+                                            <select name="exam_id"  id="gender" class="form-control" ng-model="vm.newUser.gender" required>
+                                                <option value="" selected>Select Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                            <span ng-show="form.exam_id.$dirty && form.exam_id.$error.required" class="help-block">Gender is required</span>
+                                        </div>
+
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{ 'has-error': form.email_reg.$dirty && form.email_reg.$error.required }">
+                                            <input class="form-control" placeholder="E-mail" type="text" name="email" id="email_reg" ng-model="vm.newUser.email" required >
+                                            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Email is required</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                            <input class="form-control" placeholder="DOB" type="date" name="mobile" id="dob" ng-model="vm.newUser.dob" required autofocus>
+                                            <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">DOB is required</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                            <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                <input class="form-control" placeholder="Education" type="text" name="mobile" id="education" ng-model="vm.newUser.education" required autofocus>
+                                <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Education is required</span>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                <input class="form-control" placeholder="Occupation" type="text" name="mobile" id="occupation" ng-model="vm.newUser.occupation" required autofocus>
+                                <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Occupation is required</span>
+                            </div>
+
+                            <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                <input class="form-control" placeholder="Address Line 1" type="text" name="mobile"  ng-model="vm.newUser.address_1" required autofocus>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                <input class="form-control" placeholder="Address Line 2" type="text" name="mobile"  ng-model="vm.newUser.address_2" required autofocus>
+                            </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                            <input class="form-control" placeholder="City" type="text" name="mobile" ng-model="vm.newUser.city_name" required autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                            <input class="form-control" placeholder="State" type="text" name="mobile"  ng-model="vm.newUser.state_name" required autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                            <input class="form-control" placeholder="Country" type="text" name="mobile" ng-model="vm.newUser.country_name" required autofocus>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                        <input class="form-control" placeholder="Pin Code" type="text" name="mobile"  ng-model="vm.newUser.pin_code" required autofocus>
+                                        <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile No. Name is required</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                        <input class="form-control" placeholder="Post Office" type="text" name="mobile" ng-model="vm.newUser.post_office" required autofocus>
+                                        <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">Mobile No. Name is required</span>
+                                    </div>
+                                </div>
+
+                                </div>
+
+
+
+
+
+
+
+
+                            <div class="btn-danger" style="text-align: center">
+                                {{ vm.regError }}
+                            </div>
+                            <br>
+                            <div class="form-actions">
+                                <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-lg btn-success btn-block">Register
+                                    <img ng-if="vm.dataLoadingReg" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                </button>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
         <div class="row" ng-show="vm.tUser.name">
 
             <div class="col-lg-6">
@@ -100,7 +227,7 @@
             <div class="col-lg-4">
 
 
-            <button type="button" class="btn btn-primary " ng-click="vm.searchUser()">
+            <button type="button" class="btn btn-primary " ng-click="vm.orderModel()">
                 Order
             </button>
                 </div>
@@ -132,121 +259,72 @@
 
 
 
+                        <div class="row panel panel-body">
+                            <div class="row" ng-repeat="p in vm.order.products">
+                            <div class="col-md-6">{{p.name}}</div>
+                            <div class="col-md-4">{{p.quantity}}</div>
+                            <div class="col-md-2">{{ p.price*p.quantity}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-4 col-md-6"><b>Total</b></div>
+                                <div class="col-md-2"><b>{{vm.order.total}}</b></div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                         <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
 
-                            <ui-select ng-model="ctrl.address.selected"
-                                       theme="bootstrap"
-                                       ng-disabled="ctrl.disabled"
-                                       reset-search-input="false"
-                                       style="width: 600px;"
-                                       title="Choose an address"
-                                       append-to-body="true">
-                                <ui-select-match placeholder="Product...">{{$select.selected.formatted_address}}</ui-select-match>
-                                <ui-select-choices repeat="address in ctrl.addresses track by $index"
-                                                   refresh="ctrl.refreshAddresses($select.search)"
-                                                   refresh-delay="0">
-                                    <div ng-bind-html="address.formatted_address | highlight: $select.search"></div>
-                                </ui-select-choices>
-                            </ui-select>
+
 
                             <select name="exam_id" class="form-control" ng-model="vm.product.id" required>
-                                <option value="" selected>Select Gender</option>
-                                <option value="male" >Male</option>
-                                <option value="female" >Female</option>
-                                <option value="other" >Other</option>
+                                <option value="" selected>Product</option>
+                                <option value="{{$index}}" ng-repeat="product in vm.products" >{{product.name}}</option>
+
                             </select>
                         </div>
                                 </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                    <input class="form-control" placeholder="Target Lower Age" type="number" ng-model="vm.adv.age_lower" required >
+                                    <input class="form-control" placeholder="Quantity" type="number" ng-model="vm.product.quantity" required >
 
                                 </div>
 
                             </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-primary btn-block" ng-click="vm.addToOrder()">
+                                    Add
+                                </button>
+                                </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                    <input class="form-control" placeholder="Target Lower Age" type="number" name="username" id="username" ng-model="vm.adv.age_lower" required >
+                        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
 
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                    <input class="form-control" placeholder="Target Higher Age" type="number" name="username" id="username" ng-model="vm.adv.age_higher" required >
 
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                    <input class="form-control" placeholder="Area to Target" type="text" name="username" id="username" ng-model="vm.adv.area" required >
+                            <select name="exam_id" class="form-control" ng-model="vm.toAddress" required>
+                                <option value="" selected>Address</option>
 
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                    <input class="form-control" placeholder="City to Target" type="text" name="username" id="username" ng-model="vm.adv.city" required >
+                                <option value="{{a.id}}" ng-repeat="a in vm.tUser.addresses">
+                                    {{ a.address_1 }}, {{ a.address_2 }}, {{ a.city_name }}, {{ a.state_name}}, {{ a.country_name}}
+                                    {{ a.pin_code}}, {{ a.post_office}}
 
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-                                    <input class="form-control" placeholder="In How many Kilometers" type="number" name="username" id="username" ng-model="vm.adv.km" required >
+                                </option>
 
-                                </div>
-                            </div>
-                        </div>
+                                <option value="new" selected>New Address</option>
 
-                        <div class="col-md-3">
-                            <div class="form-group">
 
-                                <select name="profession" ng-model="vm.adv.days">
-
-                                    <option value="0" selected>Days</option>
-                                    <option value="10" >10</option>
-                                    <option value="50" >50</option>
-                                    <option value="100" >100</option>
-                                    <option value="365" >365</option>
-
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-
-                                <select name="profession" ng-model="vm.adv.stores">
-
-                                    <option value="0" selected>Stores</option>
-                                    <option value="10" >10</option>
-                                    <option value="50" >50</option>
-                                    <option value="100" >100</option>
-                                    <option value="200" >200</option>
-
-                                </select>
-                            </div>
+                            </select>
                         </div>
 
 
-
-
-
-
-
-
-
+                        <br>
+                        <br>
+                        <br>
 
 
                         <div class="form-actions">
-                            <button type="submit" ng-disabled="form.$invalid || vm.processing || !vm.adv.video_id" class="btn btn-lg btn-primary btn-block">
-                                Create Adv.
+                            <button type="submit" class="btn btn-lg btn-primary btn-block">
+                                Create Order
                                 <img ng-if="vm.processing" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                             </button>
 
@@ -256,14 +334,7 @@
                     </fieldset>
                 </form>
 
-                <div class="form-group">
-                    <label for="video_file">Upload Adv. Video</label>
-                    <input type="file" name="pic_id" id="video_file" class="form-control" ng-hide="vm.login" file-model="vm.adv.file"/>
-                    <button  class="btn btn-primary" ng-disabled="vm.videoUploading" ng-click="vm.uploadVideo();">Upload</button>
-                    <img ng-if="vm.processing" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
 
-
-                </div>
 
 
 

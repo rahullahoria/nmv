@@ -26,14 +26,7 @@
                     $location.path('/member');
             }else{
 
-                CandidateService.GetExams(''
-                    )
-                    .then(function (response) {
-                        console.log("resp",response);
 
-                        vm.exams = response.exams;
-                        console.log("exams",vm.exams);
-                    });
 
             AuthenticationService.ClearCredentials();
             }
