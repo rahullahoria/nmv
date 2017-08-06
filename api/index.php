@@ -12,7 +12,7 @@ require_once "includes/sms.php";
 
 require_once "resources/auth/postUserAuth.php";
 
-require_once "resources/ads/createAds.php";
+require_once "resources/orders/takeOrder.php";
 require_once "resources/user/regUser.php";
 require_once "resources/user/searchUser.php";
 require_once "resources/user/checkOtp.php";

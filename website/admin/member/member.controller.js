@@ -102,6 +102,10 @@
                 )
                 .then(function (response) {
                     console.log("resp",response);
+                    vm.tsUser.mobile = vm.newUser.mobile;
+                    vm.newUser = {};
+                    vm.tUser.createUser = false;
+                    vm.searchUser();
 
 
                 });
