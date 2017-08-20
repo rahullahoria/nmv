@@ -205,9 +205,11 @@
             var post = {user_id:vm.tUser.id,user_add_id:vm.toAddress,products:vm.order.products};
 
             CandidateService.CreateOrder(post).then(function (response) {
-                if(response.ads.id){
-                    vm.adv = {};
-                    vm.adv.file = {};
+                if(response.id){
+                    vm.order = {};
+                    vm.toAddress = 0;
+                    $("#order").modal("hide");
+
                 }
                 console.log(response);
             });
