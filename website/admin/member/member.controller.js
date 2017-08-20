@@ -198,10 +198,13 @@
 
 
 
-        vm.createAdv = function(mobile,id){
+        vm.createOrder = function(){
 
+            console.log(vm.order,vm.toAddress,vm.tUser);
 
-            CandidateService.CreateAdv(vm.adv).then(function (response) {
+            var post = {user_id:vm.tUser.id,user_add_id:vm.toAddress,products:vm.order.products};
+
+            CandidateService.CreateOrder(post).then(function (response) {
                 if(response.ads.id){
                     vm.adv = {};
                     vm.adv.file = {};

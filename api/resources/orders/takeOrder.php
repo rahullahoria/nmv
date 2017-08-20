@@ -39,22 +39,24 @@ function takeOrder(){
 
         $order->id = $db->lastInsertId();
 
-        if($user->id){
-            $stmt = $db->prepare($sqlOrderDetails);
+        if($order->id){
+            foreach($order->products as $p) {
+                $stmt = $db->prepare($sqlOrderDetails);
 
 
-            $stmt->bindParam("orderId", $order->id);
-            $stmt->bindParam("productId", $user->product_id);
-            $stmt->bindParam("quantity", $user->quantity);
-            $stmt->bindParam("createD", date("Y-m-d H:i:s"));
+                $stmt->bindParam("orderId", $p->id);
+                $stmt->bindParam("productId", $p->product_id);
+                $stmt->bindParam("quantity", $p->quantity);
+                $stmt->bindParam("createD", date("Y-m-d H:i:s"));
 
-            $stmt->execute();
+                $stmt->execute();
+            }
 
         }
 
 
         $db = null;
-        echo '{"response": ' . json_encode($user) . '}';
+        echo '{"response": ' . json_encode($order) . '}';
     } catch (PDOException $e) {
         //error_log($e->getMessage(), 3, '/var/tmp/php.log');
         echo '{"error":{"text":' . $e->getMessage() . '}}';

@@ -27,7 +27,7 @@
         service.GetTopicMatter = GetTopicMatter;
         service.CheckOTP = CheckOTP;
         service.StartDemoTest = StartDemoTest;
-        service.CreateAdv = CreateAdv;
+        service.CreateOrder = CreateOrder;
         service.GetExamSubjects = GetExamSubjects;
         service.GetExamSubjectTopics = GetExamSubjectTopics;
         service.AddRemark = AddRemark;
@@ -131,8 +131,8 @@
             return $http.post('https://api.examhans.com/user/'+userMd5+'/test/', instance).then(handleSuccess, handleError('Error updating user'));
         }
 
-        function CreateAdv(adv) {
-            return $http.post('http://api.spas.shatkonlabs.com/ads', adv).then(handleSuccess, handleError('Error updating user'));
+        function CreateOrder(order) {
+            return $http.post('http://api.nmv.shatkonlabs.com/order', order).then(handleSuccess, handleError('Error updating user'));
         }
 
         function AddRemark(userMd5, instance) {
