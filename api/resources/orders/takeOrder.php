@@ -44,8 +44,8 @@ function takeOrder(){
                 $stmt = $db->prepare($sqlOrderDetails);
 
 
-                $stmt->bindParam("orderId", $p->id);
-                $stmt->bindParam("productId", $p->product_id);
+                $stmt->bindParam("orderId", $order->id);
+                $stmt->bindParam("productId", $p->id);
                 $stmt->bindParam("quantity", $p->quantity);
                 $stmt->bindParam("createD", date("Y-m-d H:i:s"));
 
