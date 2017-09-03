@@ -8,7 +8,7 @@
 
 function get10DayOrders(){
 
-    $sql = "SELECT a.user_id, a.user_address_id, a.status, a.creation, b.product_id,b.order_id,b.quantity,c.name,c.mobile, d.city_id, d.pin_code, e.name FROM
+    $sql = "SELECT a.user_id, a.user_address_id, a.status, a.creation, b.product_id,b.order_id,b.quantity,c.name,c.mobile, d.city_id, d.pin_code, e.name as product FROM
 `orders` as a inner join order_details as b inner join users as c inner join user_address as d
 inner join products as e
 

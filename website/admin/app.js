@@ -45,6 +45,27 @@
 
             })
 
+            .when('/orders', {
+                controller: 'OrderController',
+                templateUrl: 'orders/order.view.html',
+                controllerAs: 'vm'
+
+            })
+
+            .when('/products', {
+                controller: 'ProductController',
+                templateUrl: 'products/product.view.html',
+                controllerAs: 'vm'
+
+            })
+
+            .when('/inventory', {
+                controller: 'InventoryController',
+                templateUrl: 'inventory/inventory.view.html',
+                controllerAs: 'vm'
+
+            })
+
             .when('/prepare/:topic_name/:topic_id', {
                 controller: 'PrepareController',
                 templateUrl: 'prepare/prepare.view.html',
