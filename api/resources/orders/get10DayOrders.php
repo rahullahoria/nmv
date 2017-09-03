@@ -24,7 +24,7 @@ WHERE a.id = b.order_id and a.user_id = c.id and a.user_address_id = d.id and b.
         $stmt->execute();
         $locks = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo '{"locks": ' . json_encode($locks) . '}';
+        echo '{"orders": ' . json_encode($locks) . '}';
     }
     catch (Exception $e){
         echo '{"error":{"text":' . $e->getMessage() . '}}';
