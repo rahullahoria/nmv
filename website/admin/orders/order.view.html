@@ -3,7 +3,7 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Dashboard</h1>
+                <h1 class="page-header">Orders</h1>
             </div>
 
         </div>
@@ -42,12 +42,12 @@
 
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <i class="fa fa-list fa-fw"></i> Current Ads
-                        <span class="pull-right">
+                        <i class="fa fa-list fa-fw"></i> 10 days Orders
+                        <!--<span class="pull-right">
                             <button type="button" class="btn btn-primary " ng-click="vm.newAddModel()">
                                 <i class="fa fa-user fa-fw"></i> New Ads +
                             </button>
-                        </span>
+                        </span>-->
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body" >
@@ -58,10 +58,10 @@
                             <tr>
                                 <th>ID <i class="fa fa-anchor fa-fw"></i></th>
                                 <th>Name <i class="fa fa-bicycle fa-fw"></i></th>
-                                <th>Demographics<i class="fa fa-question-circle fa-fw"></i></th>
-                                <th>Area<i class="fa fa-coffee  fa-fw"></i></th>
-                                <th>City <i class="fa fa-coffee  fa-fw"></i></th>
-                                <th>KM<i class="fa fa-coffee  fa-fw"></i></th>
+                                <th>Product<i class="fa fa-question-circle fa-fw"></i></th>
+                                <th>City<i class="fa fa-coffee  fa-fw"></i></th>
+                                <th>Pin Code <i class="fa fa-coffee  fa-fw"></i></th>
+
                                 <th>Creation <i class="fa fa-coffee  fa-fw"></i></th>
                                 <th>Status<i class="fa fa-coffee  fa-fw"></i></th>
 
@@ -74,24 +74,22 @@
                             <tr ng-repeat="ad in vm.allAds"  class="{{ (topic.amount_made==null)?'warning':'success' }}">
 
                                 <td>
-                                    <a ng-click="vm.videoDetails($index)">{{ ad.id }}</a>
+                                    <a ng-click="vm.videoDetails($index)">{{ ad.order_id }}</a>
                                 </td>
                                 <td>
-                                    {{ ad.title}}
+                                    {{ ad.name}} ({{ad.mobile}}) (ID :{{ad.user_id}})
                                 </td>
                                 <td>
-                                    {{ ad.gender}} ({{ ad.age_lower}} - {{ ad.age_higher}})
+                                    {{ ad.product}} ({{ ad.quantity}})
                                 </td>
 
                                 <td>
-                                    {{ ad.area}}
+                                    {{ ad.city_id}}
                                 </td>
                                 <td>
-                                    {{ ad.city}}
+                                    {{ ad.pin_code}}
                                 </td>
-                                <td>
-                                    {{ ad.km}}
-                                </td>
+
 
                                 <td>
                                     {{ ad.creation}}

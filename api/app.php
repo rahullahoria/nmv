@@ -29,6 +29,7 @@ $app->post('/users', 'regUser');
 $app->post('/order', 'takeOrder');
 $app->get('/order', 'get10DayOrders');
 $app->get('/products','getProducts');
+$app->get('/inventory','getInventory');
 
 $app->get('/users/:mobile/search','searchUser');
 

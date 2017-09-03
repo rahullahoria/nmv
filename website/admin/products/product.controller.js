@@ -221,9 +221,9 @@
         function loadToCallCandidates(){
             vm.dataLoading = true;
 
-            CandidateService.GetStatus()
+            CandidateService.GetProducts()
                 .then(function (response) {
-                    vm.allAds = response.ads;
+                    vm.allAds = response.products;
                     vm.dataLoading = false;
 
 

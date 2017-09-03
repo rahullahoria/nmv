@@ -21,7 +21,7 @@
         service.UpdateInstance = UpdateInstance;
         service.SearchUser = SearchUser;
         service.StartTest = StartTest;
-        service.GetQuestion = GetQuestion;
+        service.GetOrders = GetOrders;
         service.SubmitRespnse = SubmitRespnse;
         service.ShowResults = ShowResults;
         service.GetTopicMatter = GetTopicMatter;
@@ -96,8 +96,8 @@
 
 
 
-        function GetQuestion(userMd5,testId,id) {
-            return $http.get('https://api.examhans.com/user/'+userMd5+'/test/'+testId+'/goto/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        function GetOrders() {
+            return $http.get('http://api.nmv.shatkonlabs.com/order').then(handleSuccess, handleError('Error getting user by id'));
         }
 
 

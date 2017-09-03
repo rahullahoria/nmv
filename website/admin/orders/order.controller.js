@@ -221,16 +221,16 @@
         function loadToCallCandidates(){
             vm.dataLoading = true;
 
-            /*CandidateService.GetStatus()
+            CandidateService.GetOrders()
                 .then(function (response) {
-                    vm.allAds = response.ads;
+                    vm.allAds = response.orders;
                     vm.dataLoading = false;
 
 
 
 
                     console.log('inside controller',vm.users);
-                });*/
+                });
 
         }
 
