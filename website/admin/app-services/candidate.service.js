@@ -34,6 +34,7 @@
         service.GetRemarks = GetRemarks;
         service.SendSMS = SendSMS;
         service.upload = upload;
+        service.GetInventory = GetInventory;
 
 
         return service;
@@ -104,6 +105,10 @@
 
         function GetProducts() {
             return $http.get('http://api.nmv.shatkonlabs.com/products' ).then(handleSuccess, handleError('Error getting user by username'));
+        }
+
+        function GetInventory() {
+            return $http.get('http://api.nmv.shatkonlabs.com/inventory' ).then(handleSuccess, handleError('Error getting user by username'));
         }
 
         function CheckOTP(userMd5,type,otp) {

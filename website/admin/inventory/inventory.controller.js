@@ -221,15 +221,11 @@
         function loadToCallCandidates(){
             vm.dataLoading = true;
 
-            CandidateService.GetStatus()
+            CandidateService.GetInventory()
                 .then(function (response) {
-                    vm.allAds = response.ads;
+                    vm.allAds = response.products;
                     vm.dataLoading = false;
 
-
-
-
-                    console.log('inside controller',vm.users);
                 });
 
         }
