@@ -7,7 +7,7 @@
  */
 
 function getAllCities($country_id,$state_id){
-    $sql = "SELECT * FROM `States` WHERE state_id = :state_id ";
+    $sql = "SELECT * FROM `cities` WHERE state_id = :state_id ";
 
 
 
