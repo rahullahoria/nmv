@@ -22,8 +22,8 @@ function regUser(){
     $sqlUser = "select id from users WHERE mobile = :mobile;";
 
 
-    $sql = "INSERT INTO `users`(`name`, `mobile`, `email`, `password`, `gender`, `type`, `dob`, `education`, `occupation`)
-              VALUES (:name,:mobile,:email,'',:gender,'',:dob,:education,:occupation);";
+    $sql = "INSERT INTO `users`(`name`, `mobile`, `ref_id`, `email`, `password`, `gender`, `type`, `dob`, `education`, `occupation`)
+              VALUES (:name,:mobile, :ref_id, :email,'',:gender,'',:dob,:education,:occupation);";
 
     $sqlAddress = "INSERT INTO `user_address`(`user_id`, `address_1`, `address_2`, `area`, `city_id`, `state_id`, `country_id`, `pin_code`, `post_office`)
                         VALUES (:userId,:address_1,:address_2,:area,:city,:state,:country,:pin_code,:post_office)";
