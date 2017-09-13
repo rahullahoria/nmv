@@ -19,6 +19,8 @@ function regUser(){
         die();
     }
 
+    $sqlUser = "select id from users WHERE mobile = :mobile;";
+
 
     $sql = "INSERT INTO `users`(`name`, `mobile`, `email`, `password`, `gender`, `type`, `dob`, `education`, `occupation`)
               VALUES (:name,:mobile,:email,'',:gender,'',:dob,:education,:occupation);";
@@ -31,11 +33,25 @@ function regUser(){
     try {
         $db = getDB();
 
+        //refusers
+
+        $stmt = $db->prepare($sql);
+
+
+        $stmt->bindParam("mobile", $user->ref_mobile);
+
+        $stmt->execute();
+
+        $refUsers = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+        //insert
         $stmt = $db->prepare($sql);
 
 
         $stmt->bindParam("name", $user->name);
         $stmt->bindParam("mobile", $user->mobile);
+        $stmt->bindParam("ref_id", $refUsers[0]->id);
         $stmt->bindParam("email", $user->email);
 
         $stmt->bindParam("gender", $user->gender);

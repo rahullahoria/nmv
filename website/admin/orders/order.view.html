@@ -37,82 +37,8 @@
 
         </div>
         <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-12" >
+        <div ng-include src="'template/ordertable.view.html'"></div>
 
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <i class="fa fa-list fa-fw"></i> 10 days Orders
-                        <!--<span class="pull-right">
-                            <button type="button" class="btn btn-primary " ng-click="vm.newAddModel()">
-                                <i class="fa fa-user fa-fw"></i> New Ads +
-                            </button>
-                        </span>-->
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body" >
-                        <div class="table-responsive">
-
-                        <table datatable="ng"  class="table table-bordered table-hover table-striped" style="max-width: 99%;">
-                            <thead>
-                            <tr>
-                                <th>ID <i class="fa fa-anchor fa-fw"></i></th>
-                                <th>Name <i class="fa fa-bicycle fa-fw"></i></th>
-                                <th>Product<i class="fa fa-question-circle fa-fw"></i></th>
-                                <th>City<i class="fa fa-coffee  fa-fw"></i></th>
-                                <th>Pin Code <i class="fa fa-coffee  fa-fw"></i></th>
-
-                                <th>Creation <i class="fa fa-coffee  fa-fw"></i></th>
-                                <th>Status<i class="fa fa-coffee  fa-fw"></i></th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-
-
-
-                            <tr ng-repeat="ad in vm.allAds"  class="{{ (topic.amount_made==null)?'warning':'success' }}">
-
-                                <td>
-                                    <a ng-click="vm.videoDetails($index)">{{ ad.order_id }}</a>
-                                </td>
-                                <td>
-                                    {{ ad.name}} ({{ad.mobile}}) (ID :{{ad.user_id}})
-                                </td>
-                                <td>
-                                    {{ ad.product}} ({{ ad.quantity}})
-                                </td>
-
-                                <td>
-                                    {{ ad.city_id}}
-                                </td>
-                                <td>
-                                    {{ ad.pin_code}}
-                                </td>
-
-
-                                <td>
-                                    {{ ad.creation}}
-                                </td>
-                                <td>
-                                  {{ ad.status}}
-                                </td>
-
-                            </tr>
-
-                            </tbody>
-                        </table>
-                            </div>
-                    </div>
-                    <!-- /.panel-body -->
-                </div>
-                <!-- /.panel -->
-
-            <hr>
-            </div>
-            <!-- /.col-lg-8 -->
-
-        </div>
         <!-- /.row -->
 
 

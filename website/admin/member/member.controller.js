@@ -83,6 +83,8 @@
             CandidateService.SearchUser(vm.tsUser.mobile).then(function(response){
                 vm.tUser = response.response[0];
 
+                vm.allAds = vm.tUser.orders;
+
                 if(vm.tUser.id == null) {
 
                     vm.newUser.mobile = vm.tsUser.mobile;

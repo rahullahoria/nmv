@@ -52,14 +52,21 @@
                                     </div>
                                     </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group" ng-class="{ 'has-error': form.email_reg.$dirty && form.email_reg.$error.required }">
                                             <input class="form-control" placeholder="E-mail" type="text" name="email" id="email_reg" ng-model="vm.newUser.email" required >
                                             <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Email is required</span>
                                         </div>
 
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
+                                        <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
+                                            <input class="form-control" placeholder="Refer Mobile no" type="text" name="ref_mobile" id="ref_mobile" ng-model="vm.newUser.ref_mobile" >
+                                            <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">DOB is required</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
                                             <input class="form-control" placeholder="DOB" type="date" name="mobile" id="dob" ng-model="vm.newUser.dob" required autofocus>
                                             <span ng-show="form.mobile.$dirty && form.mobile.$error.required" class="help-block">DOB is required</span>
@@ -235,7 +242,7 @@
 
         </div>
         <hr>
-
+        <div ng-include src="'template/ordertable.view.html'"></div>
 
 
         <!-- /.row -->
