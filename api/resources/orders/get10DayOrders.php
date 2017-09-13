@@ -18,11 +18,11 @@ function get10DayOrders(){
 
     $filter = "";
     if(isset($from)){
-        $filter .= " and DATE(a.creation) >= " . $from;
+        $filter .= " and DATE(a.creation) >= DATE('" . $from . "')";
     }
 
     if(isset($to)){
-        $filter .= " and DATE(a.creation) <= " . $to;
+        $filter .= " and DATE(a.creation) <= DATE('" . $to . "')";
     }
 
     if(isset($city)){
