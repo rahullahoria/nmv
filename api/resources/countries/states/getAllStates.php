@@ -7,7 +7,7 @@
  */
 
 function getAllStates($country_id){
-    $sql = "SELECT * FROM `States` WHERE country_id = :country_id ";
+    $sql = "SELECT * FROM `states` WHERE country_id = :country_id ";
 
 
 
