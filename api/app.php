@@ -31,6 +31,10 @@ $app->get('/order', 'get10DayOrders');
 $app->get('/products','getProducts');
 $app->get('/inventory','getInventory');
 
+$app->get('/country','getAllCountries');
+$app->get('/country/:country_id/states','getAllStates');
+$app->get('/country/:country_id/states/state_id/cities','getAllCities');
+
 $app->get('/users/:mobile/search','searchUser');
 
 $app->get('/bill_board/:id','getBBAds');

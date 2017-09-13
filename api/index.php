@@ -31,6 +31,10 @@ require_once "resources/bill_board/waiter/callAccepted.php";
 
 require_once "resources/inventory/getInventory.php";
 
+require_once "resources/countries/getAllCountries.php";
+require_once "resources/countries/states/getAllStates.php";
+require_once "resources/countries/states/cities/getAllCities.php";
+
 //app
 require_once "app.php";
 
