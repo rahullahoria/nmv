@@ -102,17 +102,31 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
-                                            <input class="form-control" placeholder="Country" type="text" name="mobile" ng-model="vm.newUser.country" required >
+                                            <select name="exam_id"  id="country" class="form-control" ng-model="vm.newUser.country" ng-change="vm.getStates()" required>
+                                                <option value="" selected>Select Country</option>
+                                                <option value="{{c.id}}" ng-repeat="c in vm.countries">{{ c.name }}</option>
+
+                                            </select>
+
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
-                                            <input class="form-control" placeholder="State" type="text" name="mobile"  ng-model="vm.newUser.state" required autofocus>
-                                        </div>
+                                            <select name="exam_id"  id="state" class="form-control" ng-model="vm.newUser.state" ng-change="vm.getCities()" required>
+                                                <option value="" selected>Select State</option>
+                                                <option value="{{c.id}}" ng-repeat="c in vm.states">{{ c.name }}</option>
+
+                                            </select>
+                                           </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group" ng-class="{ 'has-error': form.mobile.$dirty && form.mobile.$error.required }">
-                                            <input class="form-control" placeholder="City" type="text" name="mobile" ng-model="vm.newUser.city" required autofocus>
+                                            <select name="exam_id"  id="city" class="form-control" ng-model="vm.newUser.city" required>
+                                                <option value="" selected>Select City</option>
+                                                <option value="{{c.id}}" ng-repeat="c in vm.cities">{{ c.name }}</option>
+
+                                            </select>
+
                                         </div>
                                     </div>
 
@@ -326,7 +340,7 @@
                         </div>
 
 
-                        <br>
+                       Payed: <input type="checkbox" ng-model="vm.order.payed" />
                         <br>
                         <br>
 

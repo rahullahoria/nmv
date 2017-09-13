@@ -90,6 +90,12 @@
                     vm.newUser.mobile = vm.tsUser.mobile;
 
                     vm.tUser.createUser = true;
+
+                    CandidateService.GetCountries().then(function(response){
+                       vm.countries = response.countries;
+                    });
+
+
                 }
                 vm.tsUser.mobile = '';
                 console.log(vm.tUser,response);
@@ -98,6 +104,21 @@
             });
             }
         };
+
+        vm.getStates = function(){
+            CandidateService.GetCountriesStates(vm.newUser.country).then(function(response){
+                vm.states = response.states;
+            });
+
+        };
+
+        vm.getCities = function(){
+            CandidateService.GetCountriesStatesCities(vm.newUser.country, vm.newUser.state).then(function(response){
+                vm.cities = response.cities;
+            });
+
+        };
+
         vm.regNewUser = function(){
             vm.dataLoadingReg = true;
             CandidateService.Create(vm.newUser
@@ -204,7 +225,7 @@
 
             console.log(vm.order,vm.toAddress,vm.tUser);
 
-            var post = {user_id:vm.tUser.id,user_add_id:vm.toAddress,products:vm.order.products};
+            var post = {user_id:vm.tUser.id,user_add_id:vm.toAddress,products:vm.order.products,payed:vm.order.payed};
 
             CandidateService.CreateOrder(post).then(function (response) {
                 if(response.id){

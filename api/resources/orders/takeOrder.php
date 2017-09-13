@@ -17,8 +17,8 @@ function takeOrder(){
         die();
     }
 
-    $sqlOrder = "INSERT INTO `orders`(`user_id`, `user_address_id`, `status`, `creation`)
-                  VALUES (:userId,:userAddresssId,'in-process',:createD)";
+    $sqlOrder = "INSERT INTO `orders`(`user_id`, `user_address_id`, `status`, `payed`,``creation`)
+                  VALUES (:userId,:userAddresssId,'in-process',:payed, :createD)";
 
     $sqlOrderDetails = "INSERT INTO `order_details`(`order_id`, `product_id`, `quantity`, `creation`)
                                 VALUES (:orderId, :productId, :quantity, :createD)";
@@ -33,6 +33,7 @@ function takeOrder(){
 
         $stmt->bindParam("userId", $order->user_id);
         $stmt->bindParam("userAddresssId", $order->user_add_id);
+        $stmt->bindParam("payed", $order->payed);
         $stmt->bindParam("createD", date("Y-m-d H:i:s"));
 
         $stmt->execute();

@@ -35,6 +35,9 @@
         service.SendSMS = SendSMS;
         service.upload = upload;
         service.GetInventory = GetInventory;
+        service.GetCountries = GetCountries;
+        service.GetCountriesStates = GetCountriesStates;
+        service.GetCountriesStatesCities = GetCountriesStatesCities;
 
 
         return service;
@@ -45,6 +48,24 @@
             return $http
                 .get('http://api.nmv.shatkonlabs.com/users/'+mobile+'/search')
                 .then(handleSuccess, handleError('Error getting all users'));
+        }
+
+        function GetCountries() {
+            return $http
+                .get('http://api.nmv.shatkonlabs.com/country')
+                .then(handleSuccess, handleError('Error getting all country'));
+        }
+
+        function GetCountriesStates(country) {
+            return $http
+                .get('http://api.nmv.shatkonlabs.com/country/'+country+'/states')
+                .then(handleSuccess, handleError('Error getting all country'));
+        }
+
+        function GetCountriesStatesCities(country,state) {
+            return $http
+                .get('http://api.nmv.shatkonlabs.com/country/'+country+'/states/'+state+'/cities')
+                .then(handleSuccess, handleError('Error getting all country'));
         }
 
         function SendSMS(mobile,text) {
