@@ -17,7 +17,7 @@ function takeOrder(){
         die();
     }
 
-    $sqlOrder = "INSERT INTO `orders`(`user_id`, `user_address_id`, `status`, `payed`,``creation`)
+    $sqlOrder = "INSERT INTO `orders`(`user_id`, `user_address_id`, `status`, `payed`,`creation`)
                   VALUES (:userId,:userAddresssId,'in-process',:payed, :createD)";
 
     $sqlOrderDetails = "INSERT INTO `order_details`(`order_id`, `product_id`, `quantity`, `creation`)
