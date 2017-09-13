@@ -33,7 +33,7 @@ $app->get('/inventory','getInventory');
 
 $app->get('/country','getAllCountries');
 $app->get('/country/:country_id/states','getAllStates');
-$app->get('/country/:country_id/states/state_id/cities','getAllCities');
+$app->get('/country/:country_id/states/:state_id/cities','getAllCities');
 
 $app->get('/users/:mobile/search','searchUser');
 
