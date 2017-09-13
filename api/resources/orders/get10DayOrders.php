@@ -34,7 +34,7 @@ function get10DayOrders(){
     }
 
     if(isset($status)){
-        $filter .= " and a.status = " . $status;
+        $filter .= " and a.status = '" . $status . "'";
     }
 
 
