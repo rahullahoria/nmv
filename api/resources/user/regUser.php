@@ -35,7 +35,7 @@ function regUser(){
 
         //refusers
 
-        $stmt = $db->prepare($sql);
+        $stmt = $db->prepare($sqlUser);
 
 
         $stmt->bindParam("mobile", $user->ref_mobile);
