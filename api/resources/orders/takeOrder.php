@@ -139,7 +139,7 @@ function takeOrder(){
                     $stmt->bindParam("userId", $s->id);
                     $stmt->bindParam("addressId", $s->address_id);
                     $stmt->bindParam("from", $s->from);
-                    $stmt->bindParam("month", $s->month);
+                    $stmt->bindParam("month", $s->months);
                     $stmt->bindParam("creation", date("Y-m-d H:i:s"));
 
                     $stmt->execute();
