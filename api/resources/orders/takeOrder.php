@@ -101,7 +101,7 @@ function takeOrder(){
                 }
 
                 if($s->id){
-                    var_dump($s);
+                    //var_dump($s);
                     $stmt = $db->prepare($sqlInsertAddress);
 
 
@@ -136,7 +136,7 @@ function takeOrder(){
 
                     $stmt = $db->prepare($sqlInsertSub);
 
-                    $stmt->bindParam("userId", $s->user_id);
+                    $stmt->bindParam("userId", $s->id);
                     $stmt->bindParam("addressId", $s->address_id);
                     $stmt->bindParam("from", $s->from);
                     $stmt->bindParam("month", $s->month);
