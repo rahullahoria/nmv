@@ -25,6 +25,7 @@
         vm.dangerFilter = true;
         vm.warningFilter = true;
         vm.primaryFilter = true;
+        vm.filter = {}
 
         vm.threeMonths = [];
         vm.whichMonth = {};
@@ -217,17 +218,24 @@
         };
 
 
+        ;
+
+        vm.getOrders = loadToCallCandidates;
 
         function loadToCallCandidates(){
             vm.dataLoading = true;
+            var filter = '?';
 
-            CandidateService.GetOrders()
+            if(vm.filter.to) filter += "&to="+vm.filter.to;
+            if(vm.filter.from) filter += "&from="+vm.filter.from;
+            if(vm.filter.status) filter += "&status="+vm.filter.status;
+            if(vm.filter.payed) filter += "&payed="+vm.filter.payed;
+            if(vm.filter.city) filter += "&city="+vm.filter.city;
+
+            CandidateService.GetOrders(filter)
                 .then(function (response) {
                     vm.allAds = response.orders;
                     vm.dataLoading = false;
-
-
-
 
                     console.log('inside controller',vm.users);
                 });

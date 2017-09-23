@@ -39,6 +39,7 @@
         vm.order = {};
         vm.order.total = 0;
         vm.order.products = [];
+        vm.order.subscribers = [];
 
 
 
@@ -75,6 +76,12 @@
                 vm.order.products.push(p);
         }
 
+        vm.addSubscription = function(){
+
+            vm.order.subscribers.push(vm.subscriber);
+            vm.subscriber = {};
+        }
+
         vm.newUser = {};
         vm.searchUser = function (){
             console.log(vm.tsUser.mobile,"mobile");
@@ -106,14 +113,15 @@
         };
 
         vm.getStates = function(){
-            CandidateService.GetCountriesStates(vm.newUser.country).then(function(response){
+            CandidateService.GetCountriesStates(vm.newUser.country?vm.newUser.country:vm.subscriber.country).then(function(response){
                 vm.states = response.states;
             });
 
         };
 
         vm.getCities = function(){
-            CandidateService.GetCountriesStatesCities(vm.newUser.country, vm.newUser.state).then(function(response){
+            CandidateService.GetCountriesStatesCities(vm.newUser.country?vm.newUser.country:vm.subscriber.country,
+                vm.newUser.state?vm.newUser.state:vm.subscriber.state).then(function(response){
                 vm.cities = response.cities;
             });
 
@@ -212,6 +220,10 @@
 
         vm.orderModel = function(){
 
+            CandidateService.GetCountries().then(function(response){
+                vm.countries = response.countries;
+            });
+
             CandidateService.GetProducts().then(function(resp){
                 vm.products = resp.products;
             });
@@ -225,7 +237,13 @@
 
             console.log(vm.order,vm.toAddress,vm.tUser);
 
-            var post = {user_id:vm.tUser.id,user_add_id:vm.toAddress,products:vm.order.products,payed:vm.order.payed};
+            var post = {
+                        user_id:vm.tUser.id,
+                        user_add_id:vm.toAddress,
+                        products:vm.order.products,
+                        payed:vm.order.payed,
+                        subscribers:vm.order.subscribers
+            };
 
             CandidateService.CreateOrder(post).then(function (response) {
                 if(response.id){
@@ -238,6 +256,7 @@
             });
 
         }
+
 
 
 

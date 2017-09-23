@@ -4,6 +4,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Orders</h1>
+
+                To:<input type="date" ng-model="vm.filter.to">
+                From: <input type="date" ng-model="vm.filter.from">
+                Payed: <input type="checkbox" ng-model="vm.filter.payed">
+                Status: <input type="text" ng-model="vm.filter.status">
+                City: <input type="text" ng-model="vm.filter.city">
+
+                <button ng-click="vm.getOrders()">Filter</button>
             </div>
 
         </div>

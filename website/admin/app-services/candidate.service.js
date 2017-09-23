@@ -118,8 +118,8 @@
 
 
 
-        function GetOrders() {
-            return $http.get('http://api.nmv.shatkonlabs.com/order').then(handleSuccess, handleError('Error getting user by id'));
+        function GetOrders(filter) {
+            return $http.get('http://api.nmv.shatkonlabs.com/order'+filter).then(handleSuccess, handleError('Error getting user by id'));
         }
 
 
