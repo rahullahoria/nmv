@@ -246,7 +246,7 @@
             };
 
             CandidateService.CreateOrder(post).then(function (response) {
-                if(response.id){
+                if(response.response.id){
                     vm.order = {};
                     vm.toAddress = 0;
                     $("#order").modal("hide");
