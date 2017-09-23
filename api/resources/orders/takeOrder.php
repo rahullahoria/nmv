@@ -101,6 +101,7 @@ function takeOrder(){
                 }
 
                 if($s->id){
+                    var_dump($s);
                     $stmt = $db->prepare($sqlInsertAddress);
 
 
